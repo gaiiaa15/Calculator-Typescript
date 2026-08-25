@@ -28,7 +28,16 @@ function monthlyEnergyGenerationInKwh(monthlyInput : CalculationParameters) : nu
     monthlyEnergy = dailyEnergyGenerationInKwh(monthlyInput) * 30;
     return monthlyEnergy;
 }
+
+// calculates the estimated monthly savings in GBP
+function estimatedMonthlySavings (input : CalculationParameters) : number {
+    let estimatedSavings : number  = 0;
+    estimatedSavings = monthlyEnergyGenerationInKwh(input) * input.electricityPriceGbpPerKwh;
+    return estimatedSavings.toFixed(2);
+}
 // prints daily energy calculation
-console.log(dailyEnergyGenerationInKwh(exampleCalculations) + "kWh");
+console.log(dailyEnergyGenerationInKwh(exampleCalculations) + " kWh");
 //prints monthly energy  calculation
-console.log(monthlyEnergyGenerationInKwh( exampleCalculations ) + "kWh");
+console.log(monthlyEnergyGenerationInKwh( exampleCalculations ) + " kWh");
+// prints the estimated monthly saving calculation in GBP
+console.log(estimatedMonthlySavings(exampleCalculations) + " GBP");
