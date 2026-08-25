@@ -21,4 +21,14 @@ function dailyEnergyGenerationInKwh
   return dailyEnergy;
 
 }
+
+// calculates monthly energy generation in kWh
+function monthlyEnergyGenerationInKwh(monthlyInput : CalculationParameters) : number{
+    let monthlyEnergy: number = 0;
+    monthlyEnergy = dailyEnergyGenerationInKwh(monthlyInput) * 30;
+    return monthlyEnergy;
+}
+// prints daily energy calculation
 console.log(dailyEnergyGenerationInKwh(exampleCalculations) + "kWh");
+//prints monthly energy  calculation
+console.log(monthlyEnergyGenerationInKwh( exampleCalculations ) + "kWh");
